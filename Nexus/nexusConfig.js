@@ -1,13 +1,11 @@
-config={
+nexusConfig={
     "data": {
-        "n": 5000,
-        "rmin": 3,
-        "rmax": 10,
-        "fillOpacityMin": 0.2,
-        "fillOpacityMax": 0.9
+        "xSpace": 10,
+        "ySpace": 40,
+        "r": 3
     },
     "style": {
-        "bgCol": "black",
-        "colPalette": ["#F75C03", "#D90368", "#04A777", "#820263", "#F4E409"]
+        "bgCol": "#002e42",
+        "colPalette": ["#552000", "#8a4d00", "#c17d17", "#f8b150", "#f5f5f5", "#93c6e1", "#5f93ac", "#2e627a", "#00344a"]
     }
 }
