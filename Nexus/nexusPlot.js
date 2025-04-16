@@ -46,20 +46,20 @@ function nexusPlot() {
     .data(grouped)
     .enter()
     .append('line')
-    .attr('x1', d => d[0] - globalConfig.settings.width/2 + 10)
-    .attr('x2', d => d[0] - globalConfig.settings.width/2 + 10)
+    .attr('x1', d => d[0] - globalConfig.settings.width/2 + 5)
+    .attr('x2', d => d[0] - globalConfig.settings.width/2 + 5)
     .attr('y1', d => d3.min(d[1], p => p.y) + 40)
     .attr('y2', d => d3.max(d[1], p => p.y) + 40)
     .attr('stroke', d => nexusColour(d[0]))
-    .attr('stroke-width', 0.5);
+    .attr('stroke-width', nexusConfig.style.strokeWidth);
 
   svg.selectAll('circle')
     .data(data)
     .enter()
     .append('circle')
-    .attr('cx', d => d.x - globalConfig.settings.width/2 + 10)
+    .attr('cx', d => d.x - globalConfig.settings.width/2 + 5)
     .attr('cy', d => d.y + 40)
-    .attr('r', nexusConfig.data.r)
+    .attr('r', nexusConfig.style.r)
     .attr('fill', d => nexusColour(d.x))
 
 };

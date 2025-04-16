@@ -1,11 +1,12 @@
 nexusConfig={
     "data": {
         "xSpace": 10,
-        "ySpace": 40,
-        "r": 3
+        "ySpace": 40
     },
     "style": {
-        "bgCol": "#002e42",
-        "colPalette": ["#552000", "#8a4d00", "#c17d17", "#f8b150", "#f5f5f5", "#93c6e1", "#5f93ac", "#2e627a", "#00344a"]
+        "strokeWidth": 0.5,
+        "r": 4,
+        "bgCol": "#453A69",
+        "colPalette": ["#4B3F72", "#CBB3BF", "#FFC857", "#119DA4", "#19647E"]
     }
 }
