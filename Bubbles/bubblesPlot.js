@@ -7,7 +7,7 @@ function bubblesPlot() {
   const data = d3.range(bubblesConfig.data.n).map(() => ({
     x: d3.randomUniform(-globalConfig.settings.width/2, globalConfig.settings.width/2)(),
     y: d3.randomUniform(-globalConfig.settings.width/2, globalConfig.settings.width/2)(),
-    size: d3.randomUniform(bubblesConfig.data.rmin, bubblesConfig.data.rmax)(),
+    size: d3.randomUniform(bubblesConfig.data.rMin, bubblesConfig.data.rMax)(),
     fillCol: d3.randomUniform(0, 1)(),
     fillOpacity: d3.randomUniform(bubblesConfig.data.fillOpacityMin, bubblesConfig.data.fillOpacityMax)()
   }));

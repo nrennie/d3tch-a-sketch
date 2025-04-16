@@ -1,8 +1,8 @@
 bubblesConfig={
     "data": {
         "n": 600,
-        "rmin": 3,
-        "rmax": 25,
+        "rMin": 3,
+        "rMax": 25,
         "fillOpacityMin": 0.2,
         "fillOpacityMax": 0.9
     },
