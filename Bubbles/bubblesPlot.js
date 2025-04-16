@@ -12,7 +12,7 @@ function bubblesPlot() {
     fillOpacity: d3.randomUniform(bubblesConfig.data.fillOpacityMin, bubblesConfig.data.fillOpacityMax)()
   }));
 
-  let colour = d3.scaleOrdinal(bubblesConfig.style.colPalette);
+  let bubblesColour = d3.scaleOrdinal(bubblesConfig.style.colPalette);
 
   // Plot
   const bubblesContainer = d3.select("#bubbles")
@@ -37,7 +37,7 @@ function bubblesPlot() {
     .attr('cx', d => d.x)
     .attr('cy', d => d.y)
     .attr('r', d => d.size)
-    .attr('fill', d => colour(d.fillCol))
+    .attr('fill', d => bubblesColour(d.fillCol))
     .attr('fill-opacity', d => d.fillOpacity);
 
 };
