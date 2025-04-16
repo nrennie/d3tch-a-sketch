@@ -18,9 +18,17 @@ a:hover {
     color: #E30B5C;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: #F0F5F5;
     color: #2F4F4F;
+}
+
+main {
+    padding-bottom: 40px !important;
 }
 
 .title {
@@ -29,4 +37,18 @@ body {
 
 .center {
     text-align: center;
+}
+
+.page-wrap {
+    min-height: 100%;
+    margin-bottom: -40px; 
+}
+
+.page-wrap:after {
+    content: "";
+    display: block;
+}
+
+.site-footer, .page-wrap:after {
+    height: 40px; 
 }
