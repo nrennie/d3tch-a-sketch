@@ -27,7 +27,7 @@ function windowsPlot() {
 
   const chartContainer = d3.select('#windows')
     .style('background-color', config.style.bgCol)
-    .style('padding', '5px')
+    .style('padding', '10px')
     .style('width', width + 20 + 'px');
 
   const svg = chartContainer
