@@ -1,4 +1,4 @@
-abacusConfig={
+config={
     "data": {
         "n": 100,
         "nCol": 20,

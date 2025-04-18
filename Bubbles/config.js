@@ -1,4 +1,4 @@
-bubblesConfig={
+config={
     "data": {
         "n": 600,
         "rMin": 3,

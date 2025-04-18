@@ -14,8 +14,8 @@ function nexusPlot() {
   
   // Create x and y lists
   const data = [];
-  for (let i = 0; i < globalConfig.settings.width; i = i + nexusConfig.data.xSpace) {
-    for (let y = n_y_start[i]; y < n_y_end[i]; y = y + nexusConfig.data.ySpace) {
+  for (let i = 0; i < globalConfig.settings.width; i = i + config.data.xSpace) {
+    for (let y = n_y_start[i]; y < n_y_end[i]; y = y + config.data.ySpace) {
       data.push({ x: i, y: y });
     }
   }
@@ -24,13 +24,12 @@ function nexusPlot() {
 
   let nexusColour = d3.scaleSequential()
     .domain(d3.extent(data, d => d.x))
-    .interpolator(d3.interpolateRgbBasis(nexusConfig.style.colPalette));
+    .interpolator(d3.interpolateRgbBasis(config.style.colPalette));
 
   // Plot
   const chartContainer = d3.select("#nexus")
-    .style('background-color', nexusConfig.style.bgCol)
+    .style('background-color', config.style.bgCol)
     .style('padding', 10 + 'px')
-    .style('margin', 10 + 'px')
     .style('width', globalConfig.settings.width + 20 + 'px');
 
   const svg = chartContainer
@@ -51,7 +50,7 @@ function nexusPlot() {
     .attr('y1', d => d3.min(d[1], p => p.y) + 40)
     .attr('y2', d => d3.max(d[1], p => p.y) + 40)
     .attr('stroke', d => nexusColour(d[0]))
-    .attr('stroke-width', nexusConfig.style.strokeWidth);
+    .attr('stroke-width', config.style.strokeWidth);
 
   svg.selectAll('circle')
     .data(data)
@@ -59,7 +58,7 @@ function nexusPlot() {
     .append('circle')
     .attr('cx', d => d.x - globalConfig.settings.width/2 + 5)
     .attr('cy', d => d.y + 40)
-    .attr('r', nexusConfig.style.r)
+    .attr('r', config.style.r)
     .attr('fill', d => nexusColour(d.x))
 
 };

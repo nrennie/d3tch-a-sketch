@@ -8,19 +8,18 @@ function abacusPlot() {
     return Math.floor(Math.random() * (max - min)) + min;
   }
   
-  const data = d3.range(abacusConfig.data.n * abacusConfig.data.nCol).map(i => ({
-    x: (-globalConfig.settings.width + 20) / 2 + ((globalConfig.settings.width - 20) / (abacusConfig.data.nCol - 1)) * (i % abacusConfig.data.nCol),
+  const data = d3.range(config.data.n * config.data.nCol).map(i => ({
+    x: (-globalConfig.settings.width + 20) / 2 + ((globalConfig.settings.width - 20) / (config.data.nCol - 1)) * (i % config.data.nCol),
     y: d3.randomUniform((-globalConfig.settings.width + 20) / 2, (globalConfig.settings.width - 20) / 2)(),
-    size: d3.randomUniform(abacusConfig.data.rMin, abacusConfig.data.rMax)()
+    size: d3.randomUniform(config.data.rMin, config.data.rMax)()
   }));
 
   const abacusGrouped = d3.groups(data, d => d.x);
 
    // Plot
   const chartContainer = d3.select("#abacus")
-    .style('background-color', abacusConfig.style.bgCol)
+    .style('background-color', config.style.bgCol)
     .style('padding', 10 + 'px')
-    .style('margin', 10 + 'px')
     .style('width', globalConfig.settings.width + 20 + 'px');
 
   const svg = chartContainer
@@ -40,8 +39,8 @@ function abacusPlot() {
     .attr('x2', d => d[0])
     .attr('y1', d => d3.min(d[1], p => p.y))
     .attr('y2', d => d3.max(d[1], p => p.y))
-    .attr('stroke', abacusConfig.style.mainCol)
-    .attr('stroke-width', abacusConfig.style.strokeWidth);
+    .attr('stroke', config.style.mainCol)
+    .attr('stroke-width', config.style.strokeWidth);
 
   svg.selectAll('circle')
     .data(data)
@@ -50,8 +49,8 @@ function abacusPlot() {
     .attr('cx', d => d.x)
     .attr('cy', d => d.y)
     .attr('r', d => d.size)
-    .attr('fill', abacusConfig.style.mainCol)
-    .attr('fill-opacity', abacusConfig.style.fillOpacity);
+    .attr('fill', config.style.mainCol)
+    .attr('fill-opacity', config.style.fillOpacity);
 
 };
 

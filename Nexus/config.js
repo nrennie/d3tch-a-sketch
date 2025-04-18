@@ -1,4 +1,4 @@
-nexusConfig={
+config={
     "data": {
         "xSpace": 10,
         "ySpace": 40
