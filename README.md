@@ -6,4 +6,4 @@
   <img src="images/DrawingWithD3.png" width="100%">
 </p>
 
-To see examples of generative art made using R or Python, go to [nrennie.rbind.io/art-gellery](https://nrennie.rbind.io/art-gellery/).
+To see examples of generative art made using R or Python, go to [nrennie.rbind.io/art-gallery](https://nrennie.rbind.io/art-gallery/).
