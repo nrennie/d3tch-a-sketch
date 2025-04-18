@@ -70,3 +70,6 @@ main {
     height: 100%;
 }
 
+.row {
+    padding-bottom: 10px;
+}
