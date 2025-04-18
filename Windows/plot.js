@@ -2,27 +2,29 @@ function windowsPlot() {
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
 
-  const labels = d3.range(config.data.n).map(i => String.fromCharCode(65 + i)); // Labels: A, B, C, ...
+  const n = getRandomInt(config.data.nMin, config.data.nMax)
+
+  const labels = d3.range(n).map(i => String.fromCharCode(65 + i)); // Labels: A, B, C, ...
 
   // Generate the data array
-  const data = d3.range(config.data.n ** 2).map(i => ({
-    x: labels[i % config.data.n],
-    y: labels[Math.floor(i / config.data.n)],
-    colX: i % config.data.n,
-    colY: i % config.data.n
+  const data = d3.range(n ** 2).map(i => ({
+    x: labels[i % n],
+    y: labels[Math.floor(i / n)],
+    colX: i % n,
+    colY: i % n
   }));
 
   const xGroups = labels;
   const yGroups = [...labels].reverse(); 
 
   let colour = d3.scaleSequential()
-    .domain([0, config.data.n])
+    .domain([0, n])
     .interpolator(d3.interpolateRgbBasis(config.style.colPalette));
 
   let reversedPalette = config.style.colPalette.slice().reverse();
 
   let revColour = d3.scaleSequential()
-    .domain([0, config.data.n])
+    .domain([0, n])
     .interpolator(d3.interpolateRgbBasis(reversedPalette));
 
   const chartContainer = d3.select('#windows')
