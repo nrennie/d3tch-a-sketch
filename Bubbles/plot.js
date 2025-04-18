@@ -42,4 +42,6 @@ function bubblesPlot() {
 
 };
 
-
+window.onload = function() {
+  bubblesPlot()
+}

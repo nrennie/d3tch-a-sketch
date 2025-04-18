@@ -64,4 +64,6 @@ function nexusPlot() {
 
 };
 
-
+window.onload = function() {
+  nexusPlot()
+}

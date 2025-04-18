@@ -55,4 +55,6 @@ function abacusPlot() {
 
 };
 
-
+window.onload = function() {
+  abacusPlot()
+}
