@@ -12,15 +12,15 @@ function bubblesPlot() {
     fillOpacity: d3.randomUniform(config.data.fillOpacityMin, config.data.fillOpacityMax)()
   }));
 
-  let bubblesColour = d3.scaleOrdinal(config.style.colPalette);
+  let colour = d3.scaleOrdinal(config.style.colPalette);
 
   // Plot
-  const bubblesContainer = d3.select("#bubbles")
+  const chartContainer = d3.select("#bubbles")
     .style('background-color', config.style.bgCol)
     .style('padding', 10 + 'px')
     .style('width', globalConfig.settings.width + 20 + 'px');
 
-  const svg = bubblesContainer
+  const svg = chartContainer
     .append("svg")
     .attr("viewBox", `0 0 ${width} ${height}`)
     .attr("preserveAspectRatio", "xMidYMid meet")
@@ -36,7 +36,7 @@ function bubblesPlot() {
     .attr('cx', d => d.x)
     .attr('cy', d => d.y)
     .attr('r', d => d.size)
-    .attr('fill', d => bubblesColour(d.fillCol))
+    .attr('fill', d => colour(d.fillCol))
     .attr('fill-opacity', d => d.fillOpacity);
 
 };

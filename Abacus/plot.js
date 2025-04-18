@@ -2,11 +2,6 @@ function abacusPlot() {
   
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
-
-  // Generate data
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
   
   const data = d3.range(config.data.n * config.data.nCol).map(i => ({
     x: (-globalConfig.settings.width + 20) / 2 + ((globalConfig.settings.width - 20) / (config.data.nCol - 1)) * (i % config.data.nCol),
@@ -14,7 +9,7 @@ function abacusPlot() {
     size: d3.randomUniform(config.data.rMin, config.data.rMax)()
   }));
 
-  const abacusGrouped = d3.groups(data, d => d.x);
+  const dataGrouped = d3.groups(data, d => d.x);
 
    // Plot
   const chartContainer = d3.select("#abacus")
@@ -32,7 +27,7 @@ function abacusPlot() {
     .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
   svg.selectAll('line')
-    .data(abacusGrouped)
+    .data(dataGrouped)
     .enter()
     .append('line')
     .attr('x1', d => d[0])

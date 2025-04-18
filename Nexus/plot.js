@@ -3,11 +3,6 @@ function nexusPlot() {
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
 
-  // Generate data
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-  
   // Generate start and end ranges
   const n_y_start = Array.from({length: globalConfig.settings.width}, () => getRandomInt(-globalConfig.settings.width/2, 0));
   const n_y_end = Array.from({length: globalConfig.settings.width}, () => getRandomInt(0, 200));
@@ -22,7 +17,7 @@ function nexusPlot() {
 
   const grouped = d3.groups(data, d => d.x);
 
-  let nexusColour = d3.scaleSequential()
+  let colour = d3.scaleSequential()
     .domain(d3.extent(data, d => d.x))
     .interpolator(d3.interpolateRgbBasis(config.style.colPalette));
 
@@ -49,7 +44,7 @@ function nexusPlot() {
     .attr('x2', d => d[0] - globalConfig.settings.width/2 + 5)
     .attr('y1', d => d3.min(d[1], p => p.y) + 40)
     .attr('y2', d => d3.max(d[1], p => p.y) + 40)
-    .attr('stroke', d => nexusColour(d[0]))
+    .attr('stroke', d => colour(d[0]))
     .attr('stroke-width', config.style.strokeWidth);
 
   svg.selectAll('circle')
@@ -59,7 +54,7 @@ function nexusPlot() {
     .attr('cx', d => d.x - globalConfig.settings.width/2 + 5)
     .attr('cy', d => d.y + 40)
     .attr('r', config.style.r)
-    .attr('fill', d => nexusColour(d.x))
+    .attr('fill', d => colour(d.x))
 
 };
 

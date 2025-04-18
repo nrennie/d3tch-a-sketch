@@ -70,6 +70,7 @@ main {
     height: 100%;
 }
 
-.row {
+.row .col-12 {
     padding-bottom: 10px;
+
 }
