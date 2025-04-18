@@ -24,8 +24,8 @@ function nexusPlot() {
   // Plot
   const chartContainer = d3.select("#nexus")
     .style('background-color', config.style.bgCol)
-    .style('padding', 10 + 'px')
-    .style('width', globalConfig.settings.width + 20 + 'px');
+    .style('padding', globalConfig.style.padding + 'px')
+    .style('width', width + globalConfig.style.padding*2 + 'px');
 
   const svg = chartContainer
     .append("svg")
