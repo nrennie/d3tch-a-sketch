@@ -11,7 +11,7 @@ function windowsPlot() {
     x: labels[i % n],
     y: labels[Math.floor(i / n)],
     colX: i % n,
-    colY: i % n
+    colY: Math.floor(i / n)
   }));
 
   const xGroups = labels;

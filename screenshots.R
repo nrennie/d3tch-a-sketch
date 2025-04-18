@@ -1,12 +1,18 @@
+force <- FALSE
+
 all_folders <- list.dirs(path = ".", recursive = FALSE)
 all_folders <- gsub(pattern = "./", replacement = "", all_folders)
 all_folders <- all_folders[!(all_folders %in% c(".git", "images"))]
 
-existing_images <- list.files(path = "images")
-existing_images <- gsub(pattern = ".png", replacement = "", existing_images)
-images_needed <- setdiff(all_folders, existing_images)
+if (force) {
+  images_needed <- all_folders
+} else {
+  existing_images <- list.files(path = "images")
+  existing_images <- gsub(pattern = ".png", replacement = "", existing_images)
+  images_needed <- setdiff(all_folders, existing_images)
+}
 
-if (length(images_needed) >= 1) {
+if (length(images_needed) >= 1 | force) {
   ids <- paste0("#", tolower(images_needed))
   for (i in seq_len(length(images_needed))) {
     webshot2::webshot(
@@ -21,4 +27,3 @@ if (length(images_needed) >= 1) {
     )
   }
 }
-
