@@ -1,4 +1,4 @@
-function bubblesPlot() {
+function bubblesPlot(outputID) {
   
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
@@ -15,7 +15,7 @@ function bubblesPlot() {
   let colour = d3.scaleOrdinal(config.style.colPalette);
 
   // Plot
-  const chartContainer = d3.select("#bubbles")
+  const chartContainer = d3.select(outputID)
     .style('background-color', config.style.bgCol)
     .style('padding', globalConfig.style.padding + 'px')
     .style('width', width + globalConfig.style.padding*2 + 'px');

@@ -1,4 +1,4 @@
-function tilesPlot() {
+function tilesPlot(outputID) {
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
 
@@ -20,7 +20,7 @@ function tilesPlot() {
     .domain([0, 1])
     .interpolator(d3.interpolateRgbBasis(config.style.colPalette));
 
-  const chartContainer = d3.select('#tiles')
+  const chartContainer = d3.select(outputID)
     .style('background-color', config.style.bgCol)
     .style('padding', globalConfig.style.padding + 'px')
     .style('width', width + globalConfig.style.padding*2 + 'px');

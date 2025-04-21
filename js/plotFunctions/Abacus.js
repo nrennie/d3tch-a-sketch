@@ -1,4 +1,4 @@
-function abacusPlot() {
+function abacusPlot(outputID) {
   
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
@@ -12,7 +12,7 @@ function abacusPlot() {
   const dataGrouped = d3.groups(data, d => d.x);
 
    // Plot
-  const chartContainer = d3.select("#abacus")
+  const chartContainer = d3.select(outputID)
     .style('background-color', config.style.bgCol)
     .style('padding', globalConfig.style.padding + 'px')
     .style('width', width + globalConfig.style.padding*2 + 'px');

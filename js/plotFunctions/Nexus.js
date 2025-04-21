@@ -1,4 +1,4 @@
-function nexusPlot() {
+function nexusPlot(outputID) {
   
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
@@ -22,7 +22,7 @@ function nexusPlot() {
     .interpolator(d3.interpolateRgbBasis(config.style.colPalette));
 
   // Plot
-  const chartContainer = d3.select("#nexus")
+  const chartContainer = d3.select(outputID)
     .style('background-color', config.style.bgCol)
     .style('padding', globalConfig.style.padding + 'px')
     .style('width', width + globalConfig.style.padding*2 + 'px');
