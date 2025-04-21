@@ -1,9 +1,9 @@
 config={
     "data": {
-        "n": 7
+        "n": 30
     },
     "style": {
         "bgCol": "black",
-        "colPalette": ["#ff9062", "#fd6598", "#cb64c0", "#3294dd", "#75fb8a", "#d0eb60"]
+        "colPalette": ["black", "black", "black", "black", "black", "black", "black", "white"]
     }
 }
