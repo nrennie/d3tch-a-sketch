@@ -1,3 +1,3 @@
 window.onload = function () {
-  tilesPlot("#tiles2");
+  tilesPlot();
 };

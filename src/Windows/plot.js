@@ -1,3 +1,3 @@
 window.onload = function () {
-  windowsPlot("#windows");
+  windowsPlot();
 };

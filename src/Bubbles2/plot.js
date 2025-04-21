@@ -1,3 +1,3 @@
 window.onload = function() {
-  bubblesPlot("#bubbles2")
+  bubblesPlot()
 }
