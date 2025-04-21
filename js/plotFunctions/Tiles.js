@@ -77,7 +77,3 @@ function tilesPlot() {
     .style('stroke', 'none');
   
 }
-
-window.onload = function () {
-  tilesPlot();
-};

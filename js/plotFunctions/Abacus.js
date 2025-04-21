@@ -48,7 +48,3 @@ function abacusPlot() {
     .attr('fill-opacity', config.style.fillOpacity);
 
 };
-
-window.onload = function() {
-  abacusPlot()
-}

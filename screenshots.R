@@ -1,8 +1,8 @@
 force <- FALSE
 
-all_folders <- list.dirs(path = ".", recursive = FALSE)
+all_folders <- list.dirs(path = "src/", recursive = FALSE)
 all_folders <- gsub(pattern = "./", replacement = "", all_folders)
-all_folders <- all_folders[!(all_folders %in% c(".git", "images"))]
+all_folders <- all_folders[!(all_folders %in% c(".git", "images", "js"))]
 
 if (force) {
   images_needed <- all_folders
@@ -12,7 +12,7 @@ if (force) {
   images_needed <- setdiff(all_folders, existing_images)
 }
 
-if (length(images_needed) >= 1 | force) {
+if (length(images_needed) >= 1 || force) {
   ids <- paste0("#", tolower(images_needed))
   for (i in seq_len(length(images_needed))) {
     webshot2::webshot(

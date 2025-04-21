@@ -45,7 +45,3 @@ function rectanglesPlot() {
     .style('stroke-width', config.style.strokeWidth);
 
 };
-
-window.onload = function() {
-  rectanglesPlot()
-}

@@ -63,7 +63,3 @@ function windowsPlot() {
     .style('stroke-width', config.style.strokeWidth);
   
 }
-
-window.onload = function () {
-  windowsPlot();
-};

@@ -57,7 +57,3 @@ function nexusPlot() {
     .attr('fill', d => colour(d.x))
 
 };
-
-window.onload = function() {
-  nexusPlot()
-}

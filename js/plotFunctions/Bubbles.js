@@ -40,7 +40,3 @@ function bubblesPlot() {
     .attr('fill-opacity', d => d.fillOpacity);
 
 };
-
-window.onload = function() {
-  bubblesPlot()
-}
