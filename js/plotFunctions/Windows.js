@@ -18,13 +18,13 @@ function windowsPlot() {
   const yGroups = [...labels].reverse(); 
 
   let colour = d3.scaleSequential()
-    .domain([0, n])
+    .domain([0, n-1])
     .interpolator(d3.interpolateRgbBasis(config.style.colPalette));
 
   let reversedPalette = config.style.colPalette.slice().reverse();
 
   let revColour = d3.scaleSequential()
-    .domain([0, n])
+    .domain([0, n-1])
     .interpolator(d3.interpolateRgbBasis(reversedPalette));
 
   const chartContainer = d3.select("#plot")
