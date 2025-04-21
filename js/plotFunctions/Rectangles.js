@@ -1,4 +1,4 @@
-function rectanglesPlot(outputID) {
+function rectanglesPlot() {
   
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
@@ -18,7 +18,7 @@ function rectanglesPlot(outputID) {
   let colour = d3.scaleOrdinal(config.style.colPalette);
 
   // Plot
-  const chartContainer = d3.select(outputID)
+  const chartContainer = d3.select("#plot")
     .style('background-color', config.style.bgCol)
     .style('padding', globalConfig.style.padding + 'px')
     .style('width', width + globalConfig.style.padding*2 + 'px');

@@ -1,4 +1,4 @@
-function windowsPlot(outputID) {
+function windowsPlot() {
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
 
@@ -27,7 +27,7 @@ function windowsPlot(outputID) {
     .domain([0, n])
     .interpolator(d3.interpolateRgbBasis(reversedPalette));
 
-  const chartContainer = d3.select(outputID)
+  const chartContainer = d3.select("#plot")
     .style('background-color', config.style.bgCol)
     .style('padding', globalConfig.style.padding + 'px')
     .style('width', width + globalConfig.style.padding*2 + 'px');

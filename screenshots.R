@@ -2,6 +2,7 @@ force <- FALSE
 
 all_folders <- list.dirs(path = "src/", recursive = FALSE)
 all_folders <- gsub(pattern = "src/", replacement = "", all_folders)
+all_folders <- all_folders[!(all_folders %in% c("template"))]
 
 if (force) {
   images_needed <- all_folders
@@ -12,12 +13,11 @@ if (force) {
 }
 
 if (length(images_needed) >= 1 || force) {
-  ids <- paste0("#", tolower(images_needed))
   for (i in seq_len(length(images_needed))) {
     webshot2::webshot(
       url = paste0("src/", images_needed[i], "/index.html"),
       file = paste0("images/", images_needed[i], ".png"),
-      selector = ids[i],
+      selector = "#plot",
       expand = c(8, 8, 8, 8),
       quiet = TRUE,
       zoom = 2,
