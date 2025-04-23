@@ -12,6 +12,6 @@ config={
     "style": {
         "strokeWidth": 2,
         "bgCol": "black",
-        "colPalette": ["#F75C03", "#D90368", "#04A777", "#820263", "#F4E409"]
+        "colPalette": PrettyCols.Disco.colors
     }
 }

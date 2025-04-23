@@ -8,6 +8,6 @@ config={
     },
     "style": {
         "bgCol": "#0C2431",
-        "colPalette": ["#16425B", "#48A9A6", "#E4DFDA", "#D4B483", "#C1666B"]
+        "colPalette": PrettyCols.Coast.colors
     }
 }

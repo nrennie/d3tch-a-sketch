@@ -4,6 +4,6 @@ config={
     },
     "style": {
         "bgCol": "#B71540",
-        "colPalette": ["#E01A4F", "#F15946", "#F9C22E", "#53B3CB", "#7DCFB6"]
+        "colPalette": PrettyCols.Lucent.colors
     }
 }
