@@ -5,7 +5,7 @@ config={
     },
     "style": {
         "strokeWidth": 3,
-        "bgCol": "#8c8c8c",
-        "colPalette": PrettyCols.Greys.colors
+        "bgCol": "white",
+        "colPalette": Pride.Lesbian.colors
     }
 }
