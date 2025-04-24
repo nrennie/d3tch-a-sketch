@@ -2,13 +2,14 @@ function rectanglesPlot() {
   
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
+  const padding = globalConfig.style.padding;
 
   const n = getRandomInt(config.data.nMin, config.data.nMax)
 
   // Generate data
   const data = d3.range(n).map(() => ({
-    x: d3.randomUniform(globalConfig.style.padding, globalConfig.settings.width - config.data.rWidthMax)(),
-    y: d3.randomUniform(globalConfig.style.padding, globalConfig.settings.width - config.data.rHeightMax)(),
+    x: d3.randomUniform(padding, width - config.data.rWidthMax)(),
+    y: d3.randomUniform(padding, width - config.data.rHeightMax)(),
     rHeight: d3.randomUniform(config.data.rHeightMin, config.data.rHeightMax)(),
     rWidth: d3.randomUniform(config.data.rWidthMin, config.data.rWidthMax)(),
     fillCol: d3.randomUniform(0, 1)(),
@@ -20,8 +21,8 @@ function rectanglesPlot() {
   // Plot
   const chartContainer = d3.select("#plot")
     .style('background-color', config.style.bgCol)
-    .style('padding', globalConfig.style.padding + 'px')
-    .style('width', width + globalConfig.style.padding*2 + 'px');
+    .style('padding', padding + 'px')
+    .style('width', width + padding*2 + 'px');
 
   const svg = chartContainer
     .append("svg")

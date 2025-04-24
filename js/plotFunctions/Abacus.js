@@ -2,10 +2,11 @@ function abacusPlot() {
   
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
+  const padding = globalConfig.style.padding;
   
   const data = d3.range(config.data.n * config.data.nCol).map(i => ({
-    x: (-globalConfig.settings.width + 20) / 2 + ((globalConfig.settings.width - 20) / (config.data.nCol - 1)) * (i % config.data.nCol),
-    y: d3.randomUniform((-globalConfig.settings.width + 20) / 2, (globalConfig.settings.width - 20) / 2)(),
+    x: (-width + 20) / 2 + ((width - 20) / (config.data.nCol - 1)) * (i % config.data.nCol),
+    y: d3.randomUniform((-width + 20) / 2, (width - 20) / 2)(),
     size: d3.randomUniform(config.data.rMin, config.data.rMax)()
   }));
 
@@ -14,8 +15,8 @@ function abacusPlot() {
    // Plot
   const chartContainer = d3.select("#plot")
     .style('background-color', config.style.bgCol)
-    .style('padding', globalConfig.style.padding + 'px')
-    .style('width', width + globalConfig.style.padding*2 + 'px');
+    .style('padding', padding + 'px')
+    .style('width', width + padding*2 + 'px');
 
   const svg = chartContainer
     .append("svg")

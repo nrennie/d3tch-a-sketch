@@ -1,10 +1,11 @@
 function windowsPlot() {
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
-
+  const padding = 0;
+  
   const n = getRandomInt(config.data.nMin, config.data.nMax)
 
-  const labels = d3.range(n).map(i => String.fromCharCode(65 + i)); // Labels: A, B, C, ...
+  const labels = d3.range(n).map(i => String.fromCharCode(65 + i)); 
 
   // Generate the data array
   const data = d3.range(n ** 2).map(i => ({
@@ -13,9 +14,6 @@ function windowsPlot() {
     colX: i % n,
     colY: Math.floor(i / n)
   }));
-
-  const xGroups = labels;
-  const yGroups = [...labels].reverse(); 
 
   let colour = d3.scaleSequential()
     .domain([0, n-1])
@@ -29,8 +27,8 @@ function windowsPlot() {
 
   const chartContainer = d3.select("#plot")
     .style('background-color', config.style.bgCol)
-    .style('padding', globalConfig.style.padding + 'px')
-    .style('width', width + globalConfig.style.padding*2 + 'px');
+    .style('padding', padding + 'px')
+    .style('width', width + padding*2 + 'px');
 
   const svg = chartContainer
     .append('svg')

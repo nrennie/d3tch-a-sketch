@@ -1,8 +1,9 @@
 function tilesPlot() {
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
+  const padding = globalConfig.style.padding;
 
-  const labels = d3.range(config.data.n).map(i => String.fromCharCode(65 + i)); // Labels: A, B, C, ...
+  const labels = d3.range(config.data.n).map(i => String.fromCharCode(65 + i)); 
 
   // Generate the data array
   const data = d3.range(config.data.n ** 2).map(i => ({
@@ -13,17 +14,14 @@ function tilesPlot() {
     z3: Math.random()
   }));
 
-  const xGroups = labels;
-  const yGroups = [...labels].reverse(); 
-
   let colour = d3.scaleSequential()
     .domain([0, 1])
     .interpolator(d3.interpolateRgbBasis(config.style.colPalette));
 
   const chartContainer = d3.select("#plot")
     .style('background-color', config.style.bgCol)
-    .style('padding', globalConfig.style.padding + 'px')
-    .style('width', width + globalConfig.style.padding*2 + 'px');
+    .style('padding', padding + 'px')
+    .style('width', width + padding*2 + 'px');
 
   const svg = chartContainer
     .append('svg')

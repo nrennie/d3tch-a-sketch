@@ -2,11 +2,12 @@ function bubblesPlot() {
   
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
+  const padding = globalConfig.style.padding;
 
   // Generate data
   const data = d3.range(config.data.n).map(() => ({
-    x: d3.randomUniform(-globalConfig.settings.width/2, globalConfig.settings.width/2)(),
-    y: d3.randomUniform(-globalConfig.settings.width/2, globalConfig.settings.width/2)(),
+    x: d3.randomUniform(-width/2, width/2)(),
+    y: d3.randomUniform(-width/2, width/2)(),
     size: d3.randomUniform(config.data.rMin, config.data.rMax)(),
     fillCol: d3.randomUniform(0, 1)(),
     fillOpacity: d3.randomUniform(config.data.fillOpacityMin, config.data.fillOpacityMax)()
@@ -17,8 +18,8 @@ function bubblesPlot() {
   // Plot
   const chartContainer = d3.select("#plot")
     .style('background-color', config.style.bgCol)
-    .style('padding', globalConfig.style.padding + 'px')
-    .style('width', width + globalConfig.style.padding*2 + 'px');
+    .style('padding', padding + 'px')
+    .style('width', width + padding*2 + 'px');
 
   const svg = chartContainer
     .append("svg")

@@ -2,14 +2,15 @@ function nexusPlot() {
   
   const width = globalConfig.settings.width;
   const height = globalConfig.settings.width;
+  const padding = globalConfig.style.padding;
 
   // Generate start and end ranges
-  const n_y_start = Array.from({length: globalConfig.settings.width}, () => getRandomInt(-globalConfig.settings.width/2, 0));
-  const n_y_end = Array.from({length: globalConfig.settings.width}, () => getRandomInt(0, 200));
+  const n_y_start = Array.from({length: width}, () => getRandomInt(-width/2 + padding*2, 0));
+  const n_y_end = Array.from({length: width}, () => getRandomInt(0, width/2 - padding*2));
   
   // Create x and y lists
   const data = [];
-  for (let i = 0; i < globalConfig.settings.width; i = i + config.data.xSpace) {
+  for (let i = padding; i < width - padding; i = i + config.data.xSpace) {
     for (let y = n_y_start[i]; y < n_y_end[i]; y = y + config.data.ySpace) {
       data.push({ x: i, y: y });
     }
@@ -24,8 +25,8 @@ function nexusPlot() {
   // Plot
   const chartContainer = d3.select("#plot")
     .style('background-color', config.style.bgCol)
-    .style('padding', globalConfig.style.padding + 'px')
-    .style('width', width + globalConfig.style.padding*2 + 'px');
+    .style('padding', padding + 'px')
+    .style('width', width + padding*2 + 'px');
 
   const svg = chartContainer
     .append("svg")
@@ -40,10 +41,10 @@ function nexusPlot() {
     .data(grouped)
     .enter()
     .append('line')
-    .attr('x1', d => d[0] - globalConfig.settings.width/2 + 5)
-    .attr('x2', d => d[0] - globalConfig.settings.width/2 + 5)
-    .attr('y1', d => d3.min(d[1], p => p.y) + 40)
-    .attr('y2', d => d3.max(d[1], p => p.y) + 40)
+    .attr('x1', d => d[0] - width/2)
+    .attr('x2', d => d[0] - width/2)
+    .attr('y1', d => d3.min(d[1], p => p.y))
+    .attr('y2', d => d3.max(d[1], p => p.y))
     .attr('stroke', d => colour(d[0]))
     .attr('stroke-width', config.style.strokeWidth);
 
@@ -51,8 +52,8 @@ function nexusPlot() {
     .data(data)
     .enter()
     .append('circle')
-    .attr('cx', d => d.x - globalConfig.settings.width/2 + 5)
-    .attr('cy', d => d.y + 40)
+    .attr('cx', d => d.x - width/2)
+    .attr('cy', d => d.y)
     .attr('r', config.style.r)
     .attr('fill', d => colour(d.x))
 
